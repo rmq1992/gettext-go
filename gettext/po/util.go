@@ -46,6 +46,9 @@ func decodePoString(text string) string {
 }
 
 func encodePoString(text string) string {
+	if len(text) == 0 {
+		return `""` + "\n"
+	}
 	var buf bytes.Buffer
 	lines := strings.Split(text, "\n")
 	for i := 0; i < len(lines); i++ {
